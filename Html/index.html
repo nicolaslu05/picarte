@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picarte</title>
+    <link rel="icon" type="imagenes" href="../Img/Logo.png">
+    <link rel="stylesheet" type="text/css" href="../Css/index.css">
+</head> 
+<body>
+    <header>
+        <div class="header-container">
+            <div class="menu-icon">
+                ☰
+            </div>
+            <ul id="burger" class="burger-nav">
+                <ol><a href="../Html/login.html">Login</a></ol>
+                <ol><a href="../Html/domicilios.html">Domicilios</a></ol>
+            </ul>
+        </div>
+    </header>
+    <div class="Barra_navegacion">
+        <div id="Inicio"></div>
+            <header id="header">
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="#Inicio">Inicio</a></li>             
+                            <li><a href="#Productos">Productos</a></li>
+                            <li><a href="#SobreNosotros">Sobre Nosotros</a></li>
+                        </ul>
+                    </nav>  
+                </div>
+            </header>
+        </div>
+        <div class="contenedor-slider-texto">
+            <div class="slider">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide"><img src="../Img/Slider1.jfif" alt="Imagen 1"></div>
+                        <div class="slide"><img src="../Img/Slider5.jpg" alt="Imagen 5"></div>
+                        <div class="slide"><img src="../Img/Slider6.jpg" alt="Imagen 6"></div>
+                        <div class="slide"><img src="../Img/Slider7.jpg" alt="Imagen 7"></div>
+                    </div>
+                </div> 
+            </div>
+            <div id="Inicio" class="texto">
+                <h2>MISIÓN 🎯</h2>
+                <p> Brindar a nuestros clientes una experiencia gastronómica única, combinando ingredientes frescos, 
+                    creatividad en la cocina y un servicio cálido y cercano. En Picarte, cocinamos con alma para quienes comen 
+                    con gusto.</p>
+                <h2>VISIÓN 🌟</h2>
+                <p>Ser el restaurante referente en innovación culinaria, donde cada bocado despierte emociones y cada visita sea una experiencia 
+                    inolvidable. En Picarte,soñamos con conquistar paladares y corazones, fusionando sabor, arte y pasión en cada plato.</p>
+            </div>
+        </div> 
+    </div>
+    <hr>
+    <h1><center>Menu 📋</center></h1>
+<div id="Productos" class="image-container">
+    <img src="../Img/Menu/1.jfif" alt="Arepa Rellena">
+    <img src="../Img/Menu/2.jfif" alt="Arepa de Queso">
+    <img src="../Img/Menu/3.jfif" alt="Empanada">
+    <img src="../Img/Menu/4.jfif" alt="Bebida">
+    <img src="../Img/Menu/Pizzas.jfif" alt="Bebida">
+    <img src="../Img/Menu/Slider7.jpg" alt="Bebida">
+    <img src="../Img/Menu/Gaseosa.webp" alt="Bebida">
+</div>
+<div class="botones-menu">
+    <button class="menu-btn" onclick="abrirMenu()">Ver Menú 🍔</button>
+    <button id="btnAbrirMapa" class="btn-reservar">Reservar Mesa 🍽️</button>
+</div>
+<div id="mapaMesas" class="mapa-container" style="display: none;">
+<h2>Selecciona una mesa</h2>
+<span class="close-mapa" onclick="cerrarMapaMesas()">&times;</span>
+<div class="mesas-grid" id="mesasGrid"></div>
+</div>
+<!-- Modal formulario -->
+<div id="formularioReserva" class="modal">
+<div class="modal-content">
+    <span onclick="cerrarFormularioReserva()" class="close">&times;</span>
+    <h2>Reservar Mesa <span id="mesaSeleccionada"></span></h2>
+    <form id="reservaForm" onsubmit="enviarReserva(event)">
+    <input type="hidden" id="mesa">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" required>
+    <label for="personas">Personas:</label>
+    <input type="number" id="personas" required>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" required>
+    <label for="hora">Hora:</label>
+    <input type="time" id="hora" required>
+    <button type="submit">Confirmar Reserva</button>
+    </form>
+</div>
+</div>
+
+<!--Codigo para menu-->  
+<div id="menuModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarMenu()">&times;</span>
+        <h2>Menú de Comida</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="../Img/Menu2/1.webp" alt="Arepa de Huevo">
+                <h3>Arepa de Huevo</h3>
+                <p>$5.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/2.jpeg" alt="Arepa de Queso">
+                <h3>Arepa de Queso</h3>
+                <p>$4.500</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/3.jpeg" alt="Empanada">
+                <h3>Empanada</h3>
+                <p>$3.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/4.webp" alt="Bebida">
+                <h3>Bebida</h3>
+                <p>$3.500</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/8.webp" alt="Bebida">
+                <h3>Bebida</h3>
+                <p>$4.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/7.jpeg" alt="Bebida">
+                <h3>Bebida</h3>
+                <p>$2.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+            <div class="menu-item">
+                <img src="../Img/Menu2/7.webp" alt="Bebida">
+                <h3>Bebida</h3>
+                <p>$2.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="../Img/Menu2/Bebidas2.webp" alt="Bebida">
+                <h3>Bebida</h3>
+                <p>$6.000</p>
+                <button class="buy-button" onclick="redirigirPago()">Comprar 💳</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<section class="map-section">
+    <h2>Ubicación</h2>
+    <p>Encuéntranos en nuestra dirección principal.</p>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.101169553918!2d-74.21674552497566!3d4.575846042727193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f4cbb225d27%3A0x97ed0916529a704f!2sPICARTE!5e0!3m2!1ses!2sco!4v1744207826771!5m2!1ses!2sco"
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+<footer  class="footer">
+    
+    <div class="mani"> 
+        <div class="footer-row">
+
+            <div id="SobreNosotros" class="footer-links">
+                
+                <h4>Compañia</h4>
+
+                <ul>
+                    <li> <a href="#">Nosotros</a></li>
+                    <li> <a href="#">Nuestros productos</a></li>
+                    <li> <a href="#">Politicas de privacidad</a></li>
+                </ul>
+
+
+            </div>
+
+            <div class="footer-links">
+                
+                <h4>Ayuda</h4>
+
+                <ul>
+                    <li> <a href="../Html/form.html">Contacto Desarrollador</a></li>
+                </ul>
+
+
+            </div>
+
+            <div class="footer-links">
+                
+                <h4>Tienda</h4>
+
+                <ul>
+                    <li> <a href="#">Hamburguesa</a></li>
+                    <li> <a href="#">Pizzas</a></li>
+                    <li> <a href="#">Hot Dog</a></li>
+                    <li> <a href="#">Beidas</a></li>
+                    <li> <a href="#">Salchipapas</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FPicarteOficial%2F%3Flocale%3Des_LA" target="_blank">
+                        <img src="../Img/facebook.webp" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/picarte.angus/" target="_blank">
+                        <img src="../Img/ig.webp" alt="Instagram">
+                    </a>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="derecho">
+        <small>&copy;2025 <b>nicolas luna y jean mina</b> - Todos los derechos reservados</small>
+    </div>
+</footer>
+    <script src="../Js/burguer.js"></script>
+    <script src="../Js/carga.js"></script>
+    <script src="../Js/slider.js"></script>
+    <script src="../Js/interfaz.js"></script>
+    <script src="../Js/interfaz2.js"></script>
+    <script src="../Js/reservas.js"></script>
+    <a href="https://wa.me/3184896273" class="whatsapp-button" target="_blank">
+        <img src="../Img/W.webp" alt="WhatsApp">
+    </a>
+</body>
+</html>
